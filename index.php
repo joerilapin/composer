@@ -46,9 +46,10 @@ use Monolog\Handler\StreamHandler;
 // create a log channel
 $log = new Logger('logger');
 $log->pushHandler(new StreamHandler(__DIR__.'/info.log', Logger::INFO));
+$log->pushHandler(new \Monolog\Handler\BrowserConsoleHandler(Logger::INFO));
 
 // add records to the log
-$log->warning('Foo');
+$log->debug('Foo');
 $log->error('Bar');
 ?>
 
